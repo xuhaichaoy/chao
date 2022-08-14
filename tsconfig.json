@@ -20,5 +20,5 @@
       "@app": ["src"]
     }
   },
-  "include": ["src/**/*", "types"]
+  "include": ["src/**/*", "types", "windi.config.ts"]
 }
