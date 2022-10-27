@@ -1,11 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 // import type { NextPage } from "next";
-import { useEffect, useState, useRef } from "react";
-import type { searchItem } from "./index";
-// import { ipcRenderer } from "electron";
-import { MarketContext } from "../../component/mtools/marketContext";
-import Market from "../../component/mtools/pluginCenter";
-import styles from "../../styles/mtools/index.module.scss";
+import { useEffect, useState, useRef } from 'react'
+import type { searchItem } from "./index.d";
+// import { MarketContext } from "../../component/mtools/marketContext";
+// import Market from "../../component/mtools/pluginCenter";
+import styles from "../../styles/mtools/index.module.less";
 
 const marketName = "插件市场";
 
@@ -31,6 +30,7 @@ const Home = () => {
     type: "home",
     value: "",
   });
+
 
   const [initPosition, setInitPosition] = useState(0);
 
@@ -66,7 +66,7 @@ const Home = () => {
   const resetFn = () => {
     if (!searchValue) {
       // 关闭窗口
-    //   ipcRenderer.send("close");
+      // ipcRenderer.send("close");
       return;
     }
     setIsMarket(false);
@@ -85,7 +85,7 @@ const Home = () => {
     keyScrollFn(-1);
   };
 
-  const keyScrollFn = (direction: number) => {
+  const keyScrollFn = (direction: any) => {
     let lastCheck =
       firstCurrent + 10 > arrData.length ? arrData.length : firstCurrent + 10;
 
@@ -140,7 +140,7 @@ const Home = () => {
     }
   };
 
-  const keyDown = (e) => {
+  const keyDown = (e: any) => {
     const { keyCode, altKey } = e;
 
     if (altKey) {
@@ -185,8 +185,9 @@ const Home = () => {
     }
   };
 
-  const keyUp = (e) => {
+  const keyUp = (e: any) => {
     const { keyCode, altKey } = e;
+    console.log(altKey)
 
     switch (keyCode) {
       case 18:
@@ -198,7 +199,7 @@ const Home = () => {
     }
   };
 
-  const handleClick = (item: { pluginType: string; }) => {
+  const handleClick = (item: any) => {
     if (!item) {
       return;
     }
@@ -219,19 +220,19 @@ const Home = () => {
       // }
       // state.pluginLoading = true;
       // state.currentPlugin = plugin;
-    //   ipcRenderer.send("openPlugin", {
-    //     type: "openPlugin",
-    //     plugin: JSON.parse(
-    //       JSON.stringify({
-    //         ...item,
-    //         // ext: item.ext || {
-    //         //   code: item.feature.code,
-    //         //   type: item.cmd.type || "text",
-    //         //   payload: null,
-    //         // },
-    //       })
-    //     ),
-    //   });
+      // ipcRenderer.send("openPlugin", {
+      //   type: "openPlugin",
+      //   plugin: JSON.parse(
+      //     JSON.stringify({
+      //       ...item,
+      //       // ext: item.ext || {
+      //       //   code: item.feature.code,
+      //       //   type: item.cmd.type || "text",
+      //       //   payload: null,
+      //       // },
+      //     })
+      //   ),
+      // });
     } else if (item.pluginType === "system") {
       // 打开system
     }
@@ -265,7 +266,7 @@ const Home = () => {
       setSearchValue(marketName);
       setIsMarket(true);
       setItemHeight(660);
-    //   ipcRenderer.send("setWindowSize", 660);
+      // ipcRenderer.send("setWindowSize", 660);
     }
   };
 
@@ -289,6 +290,7 @@ const Home = () => {
   };
 
   const windowMove = (canMove: boolean) => {
+    console.log(canMove)
     // ipcRenderer.send("window-move-open", {
     //   canMove,
     //   itemHeight,
@@ -309,7 +311,7 @@ const Home = () => {
     windowMove(true);
   };
 
-  const wheelScroll = ({ deltaY }) => {
+  const wheelScroll = ({ deltaY }: any) => {
     // const maxScrollHeight =
     //   arrData.length - 10 > 0 ? (arrData.length - 10) * 60 : 0;
 
@@ -353,7 +355,7 @@ const Home = () => {
     whellScrollFn(deltaY);
   };
 
-  const whellScrollFn = (direction: number) => {
+  const whellScrollFn = (direction: any) => {
     const maxScrollHeight =
       arrData.length - 10 > 0 ? (arrData.length - 10) * 60 : 0;
 
@@ -406,12 +408,13 @@ const Home = () => {
     return text;
   };
 
-  const handleLighting = ({ info, name }) => {
+  const handleLighting = ({ info, name }: any) => {
     if (!info) {
       return name;
     }
     let words = info?.split(",")[0];
-    return getBracketStr(words);
+    const res = getBracketStr(words);
+    return res;
   };
 
   const gerenateSearchItem = () => {
@@ -509,11 +512,9 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={`min-h-[66px]`}>
+    <div className={`min-h-[66px] w-full`}>
       <div
-        className={`flex justify-between border-dark-100 rounded-lg bg-light-50 px-2 ${
-          styles.coreSearch
-        } ${isMarket ? styles.canDrag : ""}`}
+        className={`flex justify-between border-dark-100 rounded-lg bg-light-50 px-2`}
         onClick={focusInput}
       >
         <div
@@ -524,7 +525,7 @@ const Home = () => {
           onMouseUp={() => windowMove(false)}
         >
           {searchValue.length > 0 ? (
-            ""
+            ''
           ) : (
             <div
               className={`w-[100%] px-2 text-2xl tracking-wider absolute z-[-1] text-gray-500`}
@@ -535,16 +536,15 @@ const Home = () => {
 
           <span
             ref={coreSearchSpan}
-            className={`max-w-[100%] invisible absolute z-[-1px] overflow-x-auto flex justify-start items-center h-[40px] focus:outline-none px-2 text-2xl tracking-wider cursor-auto leading-[40px] pr-[6px] ${styles.searchStyle}`}
+            className={`max-w-[100%] invisible absolute z-[-1px] overflow-x-auto flex justify-start items-center h-[40px] focus:outline-none px-2 text-2xl tracking-wider cursor-auto leading-[40px] pr-[6px]`}
             spellCheck={false}
           >
             {searchValue}
           </span>
-
           <input
             ref={coreSearchInput}
-            type="text"
-            placeholder="Hi, mTools"
+            type='text'
+            placeholder='Hi, mTools'
             className={`max-w-[100%] block h-16 focus:outline-none px-2 text-2xl tracking-wider`}
             value={searchValue}
             spellCheck={false}
@@ -556,19 +556,18 @@ const Home = () => {
         <div className={`flex items-center w-px-10px w-[50px]`}>
           <img
             className={`rounded-md ${
-              checkData.type === "home" && "cursor-pointer"
+              checkData.type === 'home' && 'cursor-pointer'
             }`}
             src={searchIcon()}
             onClick={openPluginCenter}
             onContextMenu={openPluginCenter}
             width={50}
             height={50}
-            alt="icon"
+            alt='icon'
           />
         </div>
       </div>
-
-      {isMarket ? (
+      {/* {isMarket ? (
         <MarketContext.Provider value={context}>
           <Market />
         </MarketContext.Provider>
@@ -584,9 +583,9 @@ const Home = () => {
             {gerenateSearchItem()}
           </div>
         </div>
-      )}
+      )} */}
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #17382d;
+  /* background-color: #17382d; */
 }
 
 button {
@@ -65,7 +65,7 @@ input {
   margin: 0 0 16px;
   padding: 6px 12px;
   font-size: 0.84rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .component-wrapper {
