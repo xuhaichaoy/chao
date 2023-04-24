@@ -32,12 +32,12 @@ const MarketCenter = () => {
   }, []);
 
   return (
-    <div className={`mt-[-5px] bg-light-50`}>
-      <div className={``}>
+    <div className={"mt-[-5px] bg-light-50"}>
+      <div className={""}>
         <Tabs defaultActiveKey="1">
           <TabPane
             tab={
-              <span className={`pl-[14px] pr-[14px]`}>
+              <span className={"pl-[14px] pr-[14px]"}>
                 <UnorderedListOutlined />
                 插件市场
               </span>
@@ -48,7 +48,7 @@ const MarketCenter = () => {
           </TabPane>
           <TabPane
             tab={
-              <span className={`pl-[14px] pr-[14px]`}>
+              <span className={"pl-[14px] pr-[14px]"}>
                 <AndroidOutlined />
                 我的插件
               </span>
@@ -59,7 +59,7 @@ const MarketCenter = () => {
           </TabPane>
           <TabPane
             tab={
-              <span className={`pl-[14px] pr-[14px]`}>
+              <span className={"pl-[14px] pr-[14px]"}>
                 <AndroidOutlined />
                 偏好设置
               </span>
@@ -70,7 +70,7 @@ const MarketCenter = () => {
           </TabPane>
           <TabPane
             tab={
-              <span className={`pl-[14px] pr-[14px]`}>
+              <span className={"pl-[14px] pr-[14px]"}>
                 <AndroidOutlined />
                 帐号与数据
               </span>
