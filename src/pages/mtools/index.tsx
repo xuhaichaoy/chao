@@ -428,9 +428,9 @@ const Home = () => {
           key={item.id}
           onClick={() => handleClick(item)}
         >
-          <div className={`flex justify-left items-center w-[100%] relative`}>
+          <div className={"flex justify-left items-center w-[100%] relative"}>
             <img
-              className={`rounded-md mr-[6px]`}
+              className={"rounded-md mr-[6px]"}
               src={item.icon || ""}
               width={36}
               height={36}
@@ -439,7 +439,7 @@ const Home = () => {
 
             {altKey ? (
               <div
-                className={`rounded-md mr-[6px] w-[36px] h-[36px] leading-[36px] text-center flex-shrink-0 absolute bg-opacity-80 bg-light-900`}
+                className={"rounded-md mr-[6px] w-[36px] h-[36px] leading-[36px] text-center flex-shrink-0 absolute bg-opacity-80 bg-light-900"}
               >
                 {index - firstCurrent + 1 >= 1 && index - firstCurrent + 1 <= 10
                   ? index - firstCurrent + 1 === 10
@@ -452,14 +452,14 @@ const Home = () => {
             )}
 
             <div
-              className={`mx-2 text-xl flex justify-center items-center flex-wrap`}
+              className={"mx-2 text-xl flex justify-center items-center flex-wrap"}
             >
               <span
                 className={`flex-shrink-1 w-[100%] ${styles.searchItemName}`}
                 dangerouslySetInnerHTML={{ __html: handleLighting(item) }}
               ></span>
               <span
-                className={`flex-shrink-1 w-[100%] text-xs mt-[2px] text-gray-600`}
+                className={"flex-shrink-1 w-[100%] text-xs mt-[2px] text-gray-600"}
               >
                 {item.desc}
               </span>
@@ -512,13 +512,13 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={`min-h-[66px] w-full`}>
+    <div className={"min-h-[66px] w-full"}>
       <div
-        className={`flex justify-between border-dark-100 rounded-lg bg-light-50 px-2`}
+        className={"flex justify-between border-dark-100 rounded-lg bg-light-50 px-2"}
         onClick={focusInput}
       >
         <div
-          className={`w-[calc(100%-60px)] h-16 cursor-default flex justify-start items-center overflow-x-auto pr-[10px] box-border relative`}
+          className={"w-[calc(100%-60px)] h-16 cursor-default flex justify-start items-center overflow-x-auto pr-[10px] box-border relative"}
           onClick={focusInput}
           onContextMenu={focusInput}
           onMouseDown={onMouseDown}
@@ -528,7 +528,7 @@ const Home = () => {
             ''
           ) : (
             <div
-              className={`w-[100%] px-2 text-2xl tracking-wider absolute z-[-1] text-gray-500`}
+              className={"w-[100%] px-2 text-2xl tracking-wider absolute z-[-1] text-gray-500"}
             >
               Hi, mTools
             </div>
@@ -536,7 +536,7 @@ const Home = () => {
 
           <span
             ref={coreSearchSpan}
-            className={`max-w-[100%] invisible absolute z-[-1px] overflow-x-auto flex justify-start items-center h-[40px] focus:outline-none px-2 text-2xl tracking-wider cursor-auto leading-[40px] pr-[6px]`}
+            className={"max-w-[100%] invisible absolute z-[-1px] overflow-x-auto flex justify-start items-center h-[40px] focus:outline-none px-2 text-2xl tracking-wider cursor-auto leading-[40px] pr-[6px]"}
             spellCheck={false}
           >
             {searchValue}
@@ -545,7 +545,7 @@ const Home = () => {
             ref={coreSearchInput}
             type='text'
             placeholder='Hi, mTools'
-            className={`max-w-[100%] block h-16 focus:outline-none px-2 text-2xl tracking-wider`}
+            className={"max-w-[100%] block h-16 focus:outline-none px-2 text-2xl tracking-wider"}
             value={searchValue}
             spellCheck={false}
             onChange={handleSearch}
@@ -553,7 +553,7 @@ const Home = () => {
             onKeyUp={keyUp}
           />
         </div>
-        <div className={`flex items-center w-px-10px w-[50px]`}>
+        <div className={"flex items-center w-px-10px w-[50px]"}>
           <img
             className={`rounded-md ${
               checkData.type === 'home' && 'cursor-pointer'
